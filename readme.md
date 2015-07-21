@@ -37,4 +37,4 @@ Para rodar os testes execute os comandos abaixo no terminal
 
     cd backend/
     phpunit test-funcoes.php 
-    phpunit test-bacno-de-dados.php 
+    phpunit test-banco.php 
