@@ -1,5 +1,5 @@
 //
-// View que represemta todas as questões
+// View que representa todas as questões
 //
 var QuestoesView = Backbone.View.extend({
   el: $('div#perguntas'),
