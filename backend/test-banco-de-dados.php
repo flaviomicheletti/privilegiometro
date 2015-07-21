@@ -1,5 +1,5 @@
 <?php
-require 'funcoes.php';
+require 'banco.php';
 
 class DataBaseTest extends PHPUnit_Framework_TestCase
 {
