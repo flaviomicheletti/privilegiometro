@@ -7,24 +7,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <style>
     .header {
-        display: table;
-        height: 100%;
-        position: relative;
-        width: 100%;
-        background-color: #FFF;
+      display: table;
+      height: 100%;
+      position: relative;
+      width: 100%;
+      background-color: #FFF;
     }
     .text-vertical-center {
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-
-    .estatistica {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+  }
+    .comparativo {
       margin: 25px 0px 100px 0px;
       background-color: #F5F5F5
     }
-
     .grafico {
       margin-top: 10px;
       width: 100%;
@@ -33,8 +30,6 @@
       position: relative;
       background-color:#CCC;
     }
-
-
     </style>
   </head>
   <body>
@@ -58,14 +53,37 @@
       </div>
     </script>
 
-<div class="jumbotron header">
-  <div class="text-vertical-center">
-    <h1>O que é privilégio?</h1>
-    <p>Algumas pessoas nascem em famílias que tem que andar quilômetros para pegar água.</p>
-    <p>Eu só tenho que abrir a torneira.</p>
-    <p>Isso é privilégio.</p>
-  </div>
-</div>
+    <!-- Template -->
+    <script type="text/template" id="grafico">
+      <div class="grafico">
+        <% _.each(posicoes, function(posicao) { %>
+          <div class="coluna" style="width: <%= posicao %>%"><p class="rotulo">&nbsp;</p></div>
+        <% }); %>
+        <div class="coluna" style="width: <%= sua_posicao %>%"><p class="rotulo">Você</p></div>
+      </div>          
+    </script>
+
+    <!-- Template -->
+    <script type="text/template" id="estatistica">
+      <p>Do total de <span><%= total %></span> participantes:</p>
+      <table class="table table-condensed">
+        <% _.each(grupos, function(grupo) { %>
+          <tr>
+            <td><%= grupo.total %> pontuaram <%= grupo.posicao %></td>
+          </tr>
+        <% }); %>
+      </table>
+    </script>
+
+    <!-- Início da página-->
+    <div class="jumbotron header">
+      <div class="text-vertical-center">
+        <h1>O que é privilégio?</h1>
+        <p>Algumas pessoas nascem em famílias que tem que andar quilômetros para pegar água.</p>
+        <p>Eu só tenho que abrir a torneira.</p>
+        <p>Isso é privilégio.</p>
+      </div>
+    </div>
 
     <!-- Nav Bar Bottom -->
     <nav class="navbar navbar-inverse navbar-fixed-bottom">
@@ -85,28 +103,32 @@
       </div>
     </nav>
 
-    <!-- principal -->
     <div class="container">
 
+      <!-- vídeo facebook -->
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-video" data-allowfullscreen="1" data-href="/empodereduasmulheres/videos/vb.282908221783173/888694507871205/?type=1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/empodereduasmulheres/videos/888694507871205/"><a href="https://www.facebook.com/empodereduasmulheres/videos/888694507871205/"></a><p>Um vídeo que fala sobre privilégios. Se você não tem consciência do seus ou acredita em meritocracia, deveria fazer este exercício.(AS 35 PERGUNTAS QUE FORAM FEITAS)1. Se os seus pais trabalharam noites e finais de semana para sustentar a sua família, dê uma passo para trás.2. Se você consegue andar pelo mundo sem sentir medo de assédio sexual, dê uma passo para frente.3. Se você consegue demonstrar afeto pelo seu companheiro romântico em público sem sentir medo de ridicularização ou violência, dê uma passo para frente.4. Se você já foi diagnosticado com alguma doença ou deficiência mental/física, dê uma passo para trás.5. Se a língua primária falada na sua casa quando você cresceu não era o inglês, dê uma passo para trás.6. Se você veio de um ambiente familiar que te apoiava, dê uma passo para frente.7. Se você alguma vez já teve que mudar seu sotaque ou trejeitos para ganhar credibilidade, dê uma passo para trás.8. Se você pode ir a qualquer lugar do país e facilmente encontrar produtos para o seu tipo de cabelo ou cosméticos que sejam da cor da sua pele, dê uma passo para frente.9. Se você já teve vergonha das suas roupas ou da sua casa quando crescia, dê uma passo para trás.10. Se você pode cometer erros e ninguém atribuir seu comportamento ao seu gênero ou raça, dê uma passo para frente.11. Se você pode legalmente casar com a pessoa que ama, independente de onde você mora, dê uma passo para frente.12. Se você nasceu nos Estados Unidos, dê uma passo para frente.13. Se você ou seus pais já se divorciaram, dê uma passo para trás.14. Se você já sentiu como se tivesse acesso adequado à comida saudável enquanto crescia, dê uma passo para frente.15. Se você estava razoavelmente certo de que seria contratado num trabalho graças às suas habilidades e qualificações, dê uma passo para frente.16. Se você nunca pensaria duas vezes antes de chamar a polícia quando algum problema acontecer, dê uma passo para frente.17. Se você pode ver um médico sempre que tem necessidade, dê uma passo para frente.18. Se você se sente confortável sendo emocionalmente aberto e expansivo, dê um passo para frente.19. Se você alguma vez já foi a única pessoa do seu gênero/raça/status social/orientação sexual em uma classe ou num local de trabalho, dê uma passo para trás.20. Se você precisou de bolsa para custear seus estudos, dê uma passo para trás.21. Se você tem folga nos feriados da sua religião, dê um passo pra frente.22. Se você teve que trabalhar durante os anos de estudo, dê uma passo para trás.23. Se você se sente confortável de andar pra casa sozinho, dê uma passo para frente.24. Se você alguma vez já viajou pra fora do país, dê uma passo para frente.25. Se você já sentiu como se não existisse uma representação real do seu grupo racial, da sua orientação sexual, gênero ou deficiência na mídia, dê uma passo para trás.26. Se você sentiu confiança de que seus pais poderiam de dar apoio financeiro se você passasse por alguma dificuldade, dê uma passo para frente.27. Se você já sofreu bullying ou foi feito de piada baseado em algo que você não podia mudar, dê uma passo para trás.28. Se tinham mais de 50 livros na casa que você cresceu, dê uma passo para frente.29. Se você estudou a cultura ou história dos seus ancestrais na escola fundamental, dê uma passo para frente.30. Se os seus pais ou responsáveis frequentaram a faculdade, dê uma passo para frente.31. Se você já fez uma viagem em família, dê uma passo para frente.32. Se você pode comprar roupas novas ou ir a um jantar quando quiser, dê uma passo para frente.33. Se você já conseguiu um emprego por ser amigo ou familiar de alguém, dê uma passo para frente.34. Se algum dos seus pais já esteve desempregado, não por opção, dê uma passo para trás.35. Se você já esteve desconfortável com uma piada ou um regimento relacionado à sua raça, gênero, aparência ou orientação sexual, mas se sentiu inseguro de confrontar a situação, dê uma passo para trás.</p>Posted by <a href="https://www.facebook.com/empodereduasmulheres">Empodere Duas Mulheres</a> on Sexta, 10 de julho de 2015</blockquote></div></div>
+
+<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-video" data-allowfullscreen="1" data-href="/empodereduasmulheres/videos/vb.282908221783173/888694507871205/?type=1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/empodereduasmulheres/videos/888694507871205/"><a href="https://www.facebook.com/empodereduasmulheres/videos/888694507871205/"></a><p>Um vídeo que fala sobre privilégios. Se você não tem consciência do seus ou acredita em meritocracia, deveria fazer este exercício.(AS 35 PERGUNTAS QUE FORAM FEITAS)1. Se os seus pais trabalharam noites e finais de semana para sustentar a sua família, dê uma passo para trás.2. Se você consegue andar pelo mundo sem sentir medo de assédio sexual, dê uma passo para frente.3. Se você consegue demonstrar afeto pelo seu companheiro romântico em público sem sentir medo de ridicularização ou violência, dê uma passo para frente.4. Se você já foi diagnosticado com alguma doença ou deficiência mental/física, dê uma passo para trás.5. Se a língua primária falada na sua casa quando você cresceu não era o inglês, dê uma passo para trás.6. Se você veio de um ambiente familiar que te apoiava, dê uma passo para frente.7. Se você alguma vez já teve que mudar seu sotaque ou trejeitos para ganhar credibilidade, dê uma passo para trás.8. Se você pode ir a qualquer lugar do país e facilmente encontrar produtos para o seu tipo de cabelo ou cosméticos que sejam da cor da sua pele, dê uma passo para frente.9. Se você já teve vergonha das suas roupas ou da sua casa quando crescia, dê uma passo para trás.10. Se você pode cometer erros e ninguém atribuir seu comportamento ao seu gênero ou raça, dê uma passo para frente.11. Se você pode legalmente casar com a pessoa que ama, independente de onde você mora, dê uma passo para frente.12. Se você nasceu nos Estados Unidos, dê uma passo para frente.13. Se você ou seus pais já se divorciaram, dê uma passo para trás.14. Se você já sentiu como se tivesse acesso adequado à comida saudável enquanto crescia, dê uma passo para frente.15. Se você estava razoavelmente certo de que seria contratado num trabalho graças às suas habilidades e qualificações, dê uma passo para frente.16. Se você nunca pensaria duas vezes antes de chamar a polícia quando algum problema acontecer, dê uma passo para frente.17. Se você pode ver um médico sempre que tem necessidade, dê uma passo para frente.18. Se você se sente confortável sendo emocionalmente aberto e expansivo, dê um passo para frente.19. Se você alguma vez já foi a única pessoa do seu gênero/raça/status social/orientação sexual em uma classe ou num local de trabalho, dê uma passo para trás.20. Se você precisou de bolsa para custear seus estudos, dê uma passo para trás.21. Se você tem folga nos feriados da sua religião, dê um passo pra frente.22. Se você teve que trabalhar durante os anos de estudo, dê uma passo para trás.23. Se você se sente confortável de andar pra casa sozinho, dê uma passo para frente.24. Se você alguma vez já viajou pra fora do país, dê uma passo para frente.25. Se você já sentiu como se não existisse uma representação real do seu grupo racial, da sua orientação sexual, gênero ou deficiência na mídia, dê uma passo para trás.26. Se você sentiu confiança de que seus pais poderiam de dar apoio financeiro se você passasse por alguma dificuldade, dê uma passo para frente.27. Se você já sofreu bullying ou foi feito de piada baseado em algo que você não podia mudar, dê uma passo para trás.28. Se tinham mais de 50 livros na casa que você cresceu, dê uma passo para frente.29. Se você estudou a cultura ou história dos seus ancestrais na escola fundamental, dê uma passo para frente.30. Se os seus pais ou responsáveis frequentaram a faculdade, dê uma passo para frente.31. Se você já fez uma viagem em família, dê uma passo para frente.32. Se você pode comprar roupas novas ou ir a um jantar quando quiser, dê uma passo para frente.33. Se você já conseguiu um emprego por ser amigo ou familiar de alguém, dê uma passo para frente.34. Se algum dos seus pais já esteve desempregado, não por opção, dê uma passo para trás.35. Se você já esteve desconfortável com uma piada ou um regimento relacionado à sua raça, gênero, aparência ou orientação sexual, mas se sentiu inseguro de confrontar a situação, dê uma passo para trás.</p>Posted by <a href="https://www.facebook.com/empodereduasmulheres">Empodere Duas Mulheres</a> on Sexta, 10 de julho de 2015</blockquote></div></div>
+
         </div>
         <div class="col-md-3"></div>
       </div>
 
+      <!-- instruções -->
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 text-vertical-center">
           <div class="alert alert-info" role="alert">
             <p>Assista ao vídeo, preencha o formulário e veja o resultado no final!</p>
-            <p>Este teste é serve para saber qual a sua posição numa escala de privilégios.</p>
+            <p>Este teste descobre qual a sua posição numa escala de privilégios.</p>
           </div>
         </div>
         <div class="col-md-3"></div>
       </div>
 
+      <!-- formulário -->
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -116,39 +138,28 @@
         <div class="col-md-2"></div>
       </div>
 
-    </div>
+    </div><!-- end container -->
 
-
-    <div class="container-fluid estatistica" >
+    <!-- Compare seu resultado... -->
+    <div class="container-fluid comparativo">
       <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-2" id="local-do-grafico">
-
-
-
-        </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
           <h1>Compare seu resultado</h1>
-          <p>Envie seu resultado par compará-lo com os de outros particantes.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Enviar!</a></p>
+          <p>Envie seu resultado par compará-lo com os de outros participantes.</p>
+          <p><button class="btn btn-primary btn-lg" role="button">Enviar!</button></p>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2" id="local-do-grafico">
+        </div>
       </div>
-
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6" id="local-da-estatistica">
 
-
-
         </div>
-      </div>
-
+      </div>      
+      
     </div>
-
-
-
-
 
     <!-- scripts js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
@@ -158,9 +169,11 @@
     <script src="models/questao.js"></script>
     <script src="models/questoes.js"></script>
     <script src="models/total.js"></script>
+    <script src="models/comparativo.js"></script>
     <script src="views/questao.js"></script>
     <script src="views/questoes.js"></script>
     <script src="views/total.js"></script>
+    <script src="views/comparativo.js"></script>    
     <script src="index.js"></script>
 
   </body>
