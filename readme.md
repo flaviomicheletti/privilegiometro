@@ -23,7 +23,7 @@ Feito em [backbone](http://backbonejs.org/).
 
 Feito em [PHP](http://php.net/) (minha hospedagem é PHP!).
 
-Crie uma base qualquer com a seguinte tabela de dados...
+Para rodar os gráficos crie uma base qualquer com a seguinte tabela de dados...
 
     CREATE TABLE IF NOT EXISTS `privilegios` (
       `posicao` int(11) NOT NULL,
@@ -35,6 +35,6 @@ Crie uma base qualquer com a seguinte tabela de dados...
 Para rodar os testes execute os comandos abaixo no terminal 
 (imaginado que vc tenha o [phpunit](https://phpunit.de/) instalado).
 
-  cd backend/
-  phpunit test-funcoes.php 
-  phpunit test-bacno-de-dados.php 
+    cd backend/
+    phpunit test-funcoes.php 
+    phpunit test-bacno-de-dados.php 
