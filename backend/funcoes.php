@@ -1,6 +1,5 @@
 <?php
 
-#
 # Retorna Json ex:
 #
 # {
@@ -37,7 +36,7 @@ function retEstatistica($total, $grupos) {
 function retGrafico($posicoes, $sua_posicao) {
     # juntar tudo
     array_push($posicoes, $sua_posicao);
-    
+
     # calcular as posições relativas
     $posicoesCalculadas = calcularPosicoesRelativas($posicoes);
 
