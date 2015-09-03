@@ -26,15 +26,16 @@ Feito em [PHP](http://php.net/) (minha hospedagem é PHP!).
 Para rodar os gráficos crie uma base qualquer com a seguinte tabela de dados...
 
     CREATE TABLE IF NOT EXISTS `privilegios` (
+      `id` int(11) NOT NULL,
       `posicao` int(11) NOT NULL,
       `quando` datetime NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ... e configure os dados de seu banco no arquivo `backend/banco.php`.
 
-Para rodar os testes execute os comandos abaixo no terminal 
+Para rodar os testes execute os comandos abaixo no terminal
 (imaginado que vc tenha o [phpunit](https://phpunit.de/) instalado).
 
     cd backend/
-    phpunit test-funcoes.php 
-    phpunit test-banco.php 
+    phpunit test-funcoes.php
+    phpunit test-banco.php
