@@ -30,7 +30,7 @@ var QuestoesView = Backbone.View.extend({
       var passo    = $(this).val();                    // dados
       var escolhas = _.clone(me.model.get('escolhas')) // é preciso clonar
       escolhas[id] = parseInt(passo);                  // anotando
-      me.model.set('escolhas', escolhas)               // ataulizabdoo o model
+      me.model.set('escolhas', escolhas)               // atualizando o model
       //console.log(id + ": " + passo);                // debugando
     });
   }
